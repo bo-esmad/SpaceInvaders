@@ -10,17 +10,40 @@ public class Invader : MonoBehaviour
     [SerializeField]
     float cadencia = 1.5f;
 
+    [SerializeField]
+    float intervaloDaCadencia = 1f;
+
     float tempoQuePassou = 0f;
+
+    [SerializeField]
+    int vidasDosIndestrutiveis = 10;
+
+    float tempoDeDisparo = 0;
+
+
+
+
+    void Start()
+    {
+        NovoTempoDeDisparo();
+    }
+
+
+    void NovoTempoDeDisparo()
+    {
+        tempoDeDisparo = Random.Range(cadencia - intervaloDaCadencia, cadencia + intervaloDaCadencia);
+    }
 
     void Update()
     {
         if(tag == "Destrutivel")
         {
             tempoQuePassou += Time.deltaTime;
-            if (tempoQuePassou >= cadencia)
+            if (tempoQuePassou >= tempoDeDisparo)
             {
                 Instantiate(fire, transform.position, transform.rotation);
                 tempoQuePassou = 0f;
+                NovoTempoDeDisparo();
             }
         }
     }
@@ -36,6 +59,11 @@ public class Invader : MonoBehaviour
             }
         } else
         {
+            vidasDosIndestrutiveis--;
+            if(vidasDosIndestrutiveis == 0)
+            {
+                Destroy(gameObject);
+            }
             Destroy(collision.gameObject);
         }
     }

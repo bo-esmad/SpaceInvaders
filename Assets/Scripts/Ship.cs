@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ship : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class Ship : MonoBehaviour
     [SerializeField]
     float velocidade = 5f;
 
+    [SerializeField]
+    int vidas = 3;
+
+    [SerializeField]
+    Vector3 initialPosition;
 
     float minX, maxX;
 
@@ -54,7 +60,14 @@ public class Ship : MonoBehaviour
     {
         if (collision.gameObject.tag == "ProjectilInimigo")
         {
-            Destroy(gameObject);
+            vidas--;
+            transform.position = initialPosition;
+            if(vidas == 0)
+            {
+                Destroy(gameObject);
+                //Carrega a Cena "GameOver"
+                SceneManager.LoadScene("GameOver");
+            }
             Destroy(collision.gameObject);
         }
     }

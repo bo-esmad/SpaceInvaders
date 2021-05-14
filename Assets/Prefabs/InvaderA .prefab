@@ -142,4 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire: {fileID: 3969589715291875727, guid: 73c87554d69d642eebbe2c4afba2dfe5, type: 3}
-  cadencia: 2.5
+  cadencia: 4
+  intervaloDaCadencia: 2
+  vidasDosIndestrutiveis: 10

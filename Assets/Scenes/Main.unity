@@ -354,6 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1618235319}
   - component: {fileID: 1618235320}
+  - component: {fileID: 1618235321}
   m_Layer: 0
   m_Name: Invaders
   m_TagString: Untagged
@@ -407,6 +408,22 @@ MonoBehaviour:
   xInc: 1
   yInc: 0.5
   probabilidadeDeIndestrutivel: 0.15
+--- !u!114 &1618235321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618235318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46841adb8ffbe40e78570e3bd9e20846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: 0.1
+  minX: -0.7
+  maxX: 0.7
+  timeToMove: 1
 --- !u!1001 &4504499624457113760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -483,6 +500,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504499623054547326, guid: 84fc71ea4d9de4f958c485be6dea4c7d,
+        type: 3}
+      propertyPath: initialPosition.y
+      value: -2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fc71ea4d9de4f958c485be6dea4c7d, type: 3}
